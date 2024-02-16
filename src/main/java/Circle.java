@@ -108,7 +108,7 @@ public class Circle
      */
     public boolean intersects(Circle aCircle)
     {
-        return (location.distanceTo(aCircle.getLocation()) < (aCircle.getRadius() + radius));
+        return (location.distanceTo(aCircle.location) <= (aCircle.radius + radius));
     }
 
     /**
