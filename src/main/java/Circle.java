@@ -17,8 +17,8 @@ public class Circle
      */
     public Circle()
     {
-        location = new Point();
-        radius = 1.0;
+        setLocation(new Point());
+        setRadius(1.0);
     }
 
     /**
@@ -29,8 +29,8 @@ public class Circle
      */
     public Circle(double radius)
     {
-        location = new Point();
-        this.radius = radius;
+        setLocation(new Point());
+        setRadius(radius);
     }
 
     /**
@@ -42,8 +42,8 @@ public class Circle
      */
     public Circle(Point location, double radius)
     {
-        this.location = new Point(location);
-        this.radius = radius;
+        setLocation(location);
+        setRadius(radius);
     }
 
     //accessors
@@ -97,14 +97,13 @@ public class Circle
      */
     public boolean contains(Point p)
     {
-        double diameter = radius * 2;
         double x1 = p.getX();
         double y1 = p.getY();
         double x2 = location.getX();
         double y2 = location.getY();
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
-        return (distance <= diameter);
+        return (distance <= radius);
     }
 
     /**
@@ -123,7 +122,7 @@ public class Circle
         double r2 = radius;
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
-        return (distance < r1 + r2);
+        return (distance < (r1 + r2));
     }
 
     /**
