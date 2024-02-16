@@ -97,13 +97,7 @@ public class Circle
      */
     public boolean contains(Point p)
     {
-        double x1 = p.getX();
-        double y1 = p.getY();
-        double x2 = location.getX();
-        double y2 = location.getY();
-        double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-
-        return (distance <= radius);
+        return (location.distanceTo(p) <= radius);
     }
 
     /**
@@ -114,15 +108,7 @@ public class Circle
      */
     public boolean intersects(Circle aCircle)
     {
-        double x1 = aCircle.getLocation().getX();
-        double y1 = aCircle.getLocation().getY();
-        double r1 = aCircle.getRadius();
-        double x2 = location.getX();
-        double y2 = location.getY();
-        double r2 = radius;
-        double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-
-        return (distance < (r1 + r2));
+        return (location.distanceTo(aCircle.getLocation()) < (aCircle.getRadius() + radius));
     }
 
     /**
