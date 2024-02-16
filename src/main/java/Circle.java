@@ -17,8 +17,8 @@ public class Circle
      */
     public Circle()
     {
-        this.location = new Point();
-        this.radius = 1.0;
+        location = new Point();
+        radius = 1.0;
     }
 
     /**
@@ -29,7 +29,7 @@ public class Circle
      */
     public Circle(double radius)
     {
-        this.location = new Point();
+        location = new Point();
         this.radius = radius;
     }
 
@@ -54,7 +54,7 @@ public class Circle
      */
     public double getRadius()
     {
-        return this.radius;
+        return radius;
     }
 
     /**
@@ -120,7 +120,7 @@ public class Circle
         double r1 = aCircle.getRadius();
         double x2 = location.getX();
         double y2 = location.getY();
-        double r2 = this.radius;
+        double r2 = radius;
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
         return (distance < r1 + r2);
