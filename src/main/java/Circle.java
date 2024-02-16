@@ -17,7 +17,8 @@ public class Circle
      */
     public Circle()
     {
-
+        this.location = new Point();
+        this.radius = 1.0;
     }
 
     /**
@@ -28,7 +29,8 @@ public class Circle
      */
     public Circle(double radius)
     {
-
+        this.location = new Point();
+        this.radius = radius;
     }
 
     /**
@@ -40,7 +42,8 @@ public class Circle
      */
     public Circle(Point location, double radius)
     {
-
+        this.location = new Point(location);
+        this.radius = radius;
     }
 
     //accessors
@@ -51,7 +54,7 @@ public class Circle
      */
     public double getRadius()
     {
-
+        return this.radius;
     }
 
     /**
@@ -61,7 +64,7 @@ public class Circle
      */
     public Point getLocation()
     {
-
+        return new Point(location);
     }
 
     // mutator methods
@@ -72,7 +75,7 @@ public class Circle
      */
     public void setRadius(double radius)
     {
-
+        this.radius = radius;
     }
 
     /**
@@ -82,7 +85,7 @@ public class Circle
      */
     public void setLocation(Point location)
     {
-
+        this.location = new Point(location);
     }
 
     // other methods
@@ -94,7 +97,14 @@ public class Circle
      */
     public boolean contains(Point p)
     {
+        double diameter = radius * 2;
+        double x1 = p.getX();
+        double y1 = p.getY();
+        double x2 = location.getX();
+        double y2 = location.getY();
+        double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
+        return (distance <= diameter);
     }
 
     /**
@@ -105,7 +115,15 @@ public class Circle
      */
     public boolean intersects(Circle aCircle)
     {
+        double x1 = aCircle.getLocation().getX();
+        double y1 = aCircle.getLocation().getY();
+        double r1 = aCircle.getRadius();
+        double x2 = location.getX();
+        double y2 = location.getY();
+        double r2 = this.radius;
+        double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
+        return (distance < r1 + r2);
     }
 
     /**
